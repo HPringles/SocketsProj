@@ -5,14 +5,14 @@ import socket, select, string, sys
 class Main:
 
     def __init__(self, host, port, username):
-        # if (len(sys.argv) < 4):
-        #     print('Usage : python telnet.py hostname port username')
-        #
-        #     sys.exit()
+        if (len(sys.argv) < 4):
+            print('Usage : python telnet.py hostname port username')
 
-        self.host = host
-        self.port = port
-        self.username = username
+            sys.exit()
+
+        self.host = sys.argv[1]
+        self.port = int(sys.argv[2])
+        self.username = sys.argv[3]
 
         self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.s.settimeout(2)
